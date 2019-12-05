@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/homeID"
+        android:enabled="true"
+        android:title="Home"
+
+        app:showAsAction="ifRoom"
+        />
+
+    <item
+        android:id="@+id/BuisnessID"
+        android:enabled="true"
+        android:title="Buisness"
+        app:showAsAction="ifRoom"
+        />
+    <item
+    android:id="@+id/TheWire"
+    android:enabled="true"
+    android:title="The Wire"
+    app:showAsAction="ifRoom"
+    />
+    <item
+    android:id="@+id/WorldId"
+    android:enabled="true"
+    android:title="World"
+    app:showAsAction="ifRoom"
+    />
+
+</menu>

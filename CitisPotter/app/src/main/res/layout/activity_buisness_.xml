@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+
+
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/cardview_light_background">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:weightSum="10"
+            >
+
+            <ImageView
+
+                android:id="@+id/backID"
+                android:paddingTop="20dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:layout_weight="2"
+                app:srcCompat="@drawable/ic_keyboard_backspace_black_24dp" />
+            <TextView
+                android:paddingTop="15dp"
+                android:layout_weight="6"
+                android:textStyle="bold"
+                android:paddingLeft="10dp"
+                android:textSize="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Buisness"
+                android:textColor="@android:color/black"
+                ></TextView>
+
+            <ImageView
+
+                android:paddingTop="15dp"
+                android:id="@+id/likeId"
+                android:layout_width="wrap_content"
+
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                app:srcCompat="@drawable/ic_thumb_up_black_24dp" />
+        </LinearLayout>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <LinearLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@id/appbar"
+            android:orientation="vertical"
+            android:weightSum="10"
+            >
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="228dp"
+                android:layout_weight="1"
+                android:text="
+CBDT seeks to widen net for appointment of members, makes younger officers eligible for post"
+                android:textSize="40dp">
+
+            </TextView>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="247dp"
+                android:layout_weight="8"
+
+                android:text="Till a couple of years ago, only officers of the rank of Principal Chief Commissioner of Income Tax (PCCIT) were eligible for being considered for appointment as Member, CBDT. CBDT, on November 11, sought to widen the catchment of officers by making eligible all officers of the rank of Principal Commissioner of Income Tax and above."
+                android:textSize="23dp">
+
+        </TextView>
+        </LinearLayout>
+
+
+</RelativeLayout>
