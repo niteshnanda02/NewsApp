@@ -3,4 +3,16 @@
     <string name="facebook_app_id">468543197354104</string>
     <string name="fb_login_protocol_scheme">fb468543197354104</string>
 
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="title">NEWS TITLE :</string>
+    <string name="body">NEWS BODY :</string>
+    <string name="addtitle">NEWS SUBMISSION FORM</string>
+    <string name="titlelimit">MAX 140 CHARACTERS</string>
+    <string name="bodylimit">MAX 60 WORDS</string>
+    <string name="claims">CLAIMS</string>
+    <string name="claimsinfo">(You can only add video,audio,picture and article link)</string>
+    <string name="title_err">Enter valid title</string>
+    <string name="body_err">Enter valid news body</string>
 </resources>

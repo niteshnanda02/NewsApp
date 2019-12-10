@@ -7,6 +7,7 @@ public class HistoryClass {
     private int nooftime;
     private String image;
 
+
     public HistoryClass() {
     }
 

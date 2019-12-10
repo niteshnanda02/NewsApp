@@ -5,27 +5,43 @@
         android:id="@+id/homeID"
         android:enabled="true"
         android:title="Home"
-
         app:showAsAction="ifRoom"
         />
 
     <item
-        android:id="@+id/BuisnessID"
+        android:id="@+id/buisnessID"
         android:enabled="true"
         android:title="Buisness"
         app:showAsAction="ifRoom"
         />
     <item
-    android:id="@+id/TheWire"
+    android:id="@+id/entertainmentID"
     android:enabled="true"
-    android:title="The Wire"
+    android:title="Entertainment"
     app:showAsAction="ifRoom"
     />
     <item
-    android:id="@+id/WorldId"
+    android:id="@+id/healthId"
     android:enabled="true"
-    android:title="World"
+    android:title="Health"
     app:showAsAction="ifRoom"
     />
-
+    <item
+        android:id="@+id/scienceID"
+        android:enabled="true"
+        android:title="Science"
+        app:showAsAction="ifRoom"
+        />
+    <item
+        android:id="@+id/sportsId"
+        android:enabled="true"
+        android:title="Sports"
+        app:showAsAction="ifRoom"
+        />
+    <item
+        android:id="@+id/technologyId"
+        android:enabled="true"
+        android:title="Technology"
+        app:showAsAction="ifRoom"
+        />
 </menu>

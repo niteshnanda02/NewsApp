@@ -1,6 +1,7 @@
 package com.example.citispotter;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -9,6 +10,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.citispotter.Fragments.AllFragment;
+import com.example.citispotter.sqlLiteDatabase.PreferenceDatabase;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -16,11 +19,15 @@ import com.google.firebase.database.FirebaseDatabase;
 import java.util.ArrayList;
 
 public class PreferenceActivity extends AppCompatActivity implements View.OnClickListener {
+
     Button buis,heal,enter,sci,spo,tech,con;
     ArrayList<String> list=new ArrayList<>();
     boolean f1=true,f2=true,f3=true,f4=true,f5=true,f6=true;
     FirebaseDatabase database=FirebaseDatabase.getInstance();
     DatabaseReference reference=database.getReference("Preference");
+    //Using SQLiteDAtabase
+    PreferenceDatabase pd;
+    androidx.fragment.app.Fragment selectedFragment=null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +46,9 @@ public class PreferenceActivity extends AppCompatActivity implements View.OnClic
         spo.setOnClickListener(this);
         tech.setOnClickListener(this);
         con.setOnClickListener(this);
+        pd=new PreferenceDatabase(this);
     }
+
 
     @Override
     public void onClick(View view) {
@@ -119,6 +128,11 @@ public class PreferenceActivity extends AppCompatActivity implements View.OnClic
                 if(list.size()>=1) {
                     System.out.println(list);
                     String str = getString(list);
+                    boolean check=pd.Insert(str);
+                    if (check)
+                        Toast.makeText(this, "Added succesfuly", Toast.LENGTH_SHORT).show();
+                    else
+                        Toast.makeText(this, "ERROR!!", Toast.LENGTH_SHORT).show();
                     reference.setValue(str);
                 }else {
                     reference.removeValue();

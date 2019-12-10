@@ -12,9 +12,9 @@
     android:icon="@drawable/vide"
     app:showAsAction="ifRoom" />
     <item
-    android:id="@+id/graphID"
+    android:id="@+id/addID"
     android:enabled="true"
-    android:icon="@drawable/grap"
+    android:icon="@drawable/add"
     app:showAsAction="ifRoom" />
     <item
         android:id="@+id/historyID"
