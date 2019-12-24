@@ -15,4 +15,8 @@
     <string name="claimsinfo">(You can only add video,audio,picture and article link)</string>
     <string name="title_err">Enter valid title</string>
     <string name="body_err">Enter valid news body</string>
+    <string name="closing_app">Please confirm</string>
+    <string name="closing_app_message">do you want to exit</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
 </resources>

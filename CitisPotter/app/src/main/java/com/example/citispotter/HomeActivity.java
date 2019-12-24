@@ -1,5 +1,6 @@
 package com.example.citispotter;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
@@ -7,6 +8,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -26,6 +28,8 @@ public class HomeActivity extends AppCompatActivity {
     private ActionBarDrawerToggle t;
     private NavigationView nv;
     androidx.fragment.app.Fragment selectedFragment=null;
+    //for dialog;
+    boolean val=false;
 
 
     @Override
@@ -185,4 +189,29 @@ public class HomeActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public void onBackPressed() {
+        int count=getSupportFragmentManager().getBackStackEntryCount();
+        if (count==0){
+            if (val) {
+                val=false;
+                new AlertDialog.Builder(this)
+                        .setTitle(getString(R.string.closing_app))
+                        .setMessage(getString(R.string.closing_app_message))
+                        .setPositiveButton(getString(R.string.yes), new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                Toast.makeText(HomeActivity.this, "Exit successfully!!", Toast.LENGTH_SHORT).show();
+                                finish();
+
+                            }
+                        })
+                        .setNegativeButton(getString(R.string.no), null)
+                        .show();
+            }
+            else {
+                val=true;
+            }
+        }
+    }
 }

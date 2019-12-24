@@ -120,8 +120,9 @@ public class loginActivity extends AppCompatActivity implements Serializable{
                         if(task.isSuccessful()){
                             FirebaseUser user=mauth.getCurrentUser();
                             updateUI(user);
-                            Intent intent=new Intent(loginActivity.this, PreferenceActivity.class);
+                            Intent intent=new Intent(loginActivity.this, HomeActivity.class);
                             startActivity(intent);
+                            finish();
                             Toast.makeText(loginActivity.this, "Sign in successfully", Toast.LENGTH_SHORT).show();
                         }else{
                             updateUI(null);
@@ -145,6 +146,7 @@ public class loginActivity extends AppCompatActivity implements Serializable{
 
                             Intent intent=new Intent(loginActivity.this, HomeActivity.class);
                             startActivity(intent);
+                            finish();
                             Toast.makeText(loginActivity.this, "Sign in successfully", Toast.LENGTH_SHORT).show();
                         }else{
                             updateUI(null);
@@ -191,6 +193,7 @@ public class loginActivity extends AppCompatActivity implements Serializable{
                             updateUI(user);
                             Intent intent=new Intent(loginActivity.this, HomeActivity.class);
                             startActivity(intent);
+                            finish();
                             Toast.makeText(loginActivity.this, "Sign in successfully", Toast.LENGTH_SHORT).show();
                         }else{
                             updateUI(null);
