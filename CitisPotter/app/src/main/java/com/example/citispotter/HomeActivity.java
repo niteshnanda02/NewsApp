@@ -2,8 +2,11 @@ package com.example.citispotter;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.WindowManager;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -30,16 +33,17 @@ public class HomeActivity extends AppCompatActivity {
     androidx.fragment.app.Fragment selectedFragment=null;
     //for dialog;
     boolean val=false;
-
+    AlertDialog dialog;
+    Intent intent;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         tabLayout=(TabLayout) findViewById(R.id.tabs);
-        bottomNavigationView=(BottomNavigationView)findViewById(R.id.bottom_navigation);
+//        bottomNavigationView=(BottomNavigationView)findViewById(R.id.bottom_navigation);
         drawer();
-        bottomNavigate();
+//        bottomNavigate();
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new AllFragment(null)).commit();
         tablanav();
 
@@ -141,35 +145,28 @@ public class HomeActivity extends AppCompatActivity {
                 {
                     case R.id.home_menu:
                         selectedFragment=new AllFragment(null);
-                        break;
-                    case R.id.business_menu:
-                        selectedFragment=new AllFragment("business");
-                        break;
-                    case R.id.entertainment_menu:
-                        selectedFragment=new AllFragment("entertainment");
-                        break;
-                    case R.id.health_menu:
-                        selectedFragment=new AllFragment("health");
-                        break;
-                    case R.id.science_menu:
-                        selectedFragment=new AllFragment("science");
-                        break;
-                    case R.id.sports_menu:
-                        selectedFragment=new AllFragment("sports");
-                        break;
-                    case R.id.technology_menu:
+                        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedFragment).commit();
 
-                        selectedFragment=new AllFragment("technology");
                         break;
-                    case R.id.addedNews:
-                        selectedFragment=new AllFragment(null);
-                        Intent intent=new Intent(HomeActivity.this,addActivity.class);
+                    case R.id.submission_menu:
+                        intent=new Intent(HomeActivity.this,addActivity.class);
                         startActivity(intent);
+                        break;
+                    case R.id.preference_menu:
+                        Toast.makeText(HomeActivity.this, "Click Preference", Toast.LENGTH_SHORT).show();
+                        break;
+                    case R.id.profile:
+                        intent=new Intent(HomeActivity.this,UserActivity.class);
+                        startActivity(intent);
+                        break;
+                    case R.id.aboutus:
+                        intent=new Intent(HomeActivity.this,AboutusActivity.class);
+                        startActivity(intent);
+                        break;
                     default:
                         return true;
                 }
                 dl.closeDrawer(GravityCompat.START);
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,selectedFragment).commit();
 
                 return true;
 
@@ -193,11 +190,13 @@ public class HomeActivity extends AppCompatActivity {
     public void onBackPressed() {
         int count=getSupportFragmentManager().getBackStackEntryCount();
         if (count==0){
+
             if (val) {
                 val=false;
-                new AlertDialog.Builder(this)
+                dialog=new AlertDialog.Builder(this)
                         .setTitle(getString(R.string.closing_app))
                         .setMessage(getString(R.string.closing_app_message))
+
                         .setPositiveButton(getString(R.string.yes), new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
@@ -208,6 +207,8 @@ public class HomeActivity extends AppCompatActivity {
                         })
                         .setNegativeButton(getString(R.string.no), null)
                         .show();
+                //for bluring
+                dialog.getWindow().setBackgroundDrawableResource(android.R.color.background_light);
             }
             else {
                 val=true;

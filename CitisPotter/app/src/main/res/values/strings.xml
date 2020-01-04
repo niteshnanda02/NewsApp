@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Citispotter</string>
+    <string name="app_name">CITISPOTTER</string>
     <string name="facebook_app_id">468543197354104</string>
     <string name="fb_login_protocol_scheme">fb468543197354104</string>
 
@@ -19,4 +19,9 @@
     <string name="closing_app_message">do you want to exit</string>
     <string name="yes">Yes</string>
     <string name="no">No</string>
+    <string name="about">About us</string>
+    <string name="aboutus">Citispotter offers automated quality score and verification of shared content towards fighting fake news, misinformation and hate-speech with the help of Artificial Intelligence (AI).\n\n
+We offer 360 degree content analysis and helps businesses to optimize content by identifying and filtering harmful content. Our automated quality score and verification algorithm detects series of misinformation signals in the content and hence it could be optimized for better world.\n\n
+Our team has more than 15+ people working over our machine learning proprietary tech day and night to give our best to the businesses we serve. Our team consists of passionate entrepreneurs, coders, testers, researchers and panel of esteemed advisors.
+    </string>
 </resources>

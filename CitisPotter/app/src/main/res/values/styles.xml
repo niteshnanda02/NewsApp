@@ -7,6 +7,22 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
+    <!--login screen theme-->
+    <style name="LoginTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+    </style>
+
+
+    <!--Display screen theme-->
+    <style name="DisplayTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+    </style>
+
+    <!--splash screen theme-->
+    <style name="SplashTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimaryDark">@android:color/white</item>
+    </style>
     <style name="AppTheme.AppOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar"></style>
     <style name="AppTheme.PopOverlay" parent="ThemeOverlay.AppCompat.Light"></style>
     <!--Style the tab-->
@@ -23,6 +39,7 @@
 
     <!-- Style for title TextView-->
     <style name="TitleTextViewStyle">
+        <item name="android:textColor">@android:color/black</item>
         <item name="android:paddingBottom">5dp</item>
         <item name="android:paddingTop">5dp</item>
         <item name="android:fontFamily">sans-serif-condensed</item>
@@ -32,6 +49,7 @@
 
     <!-- Style for Section, Author, and Date TextView -->
     <style name="SectionAuthorDateStyle">
+        <item name="android:textColor">@android:color/black</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginLeft">16dp</item>
@@ -41,26 +59,26 @@
 
     <!-- Style for section TextView -->
     <style name="SectionTextViewStyle" parent="@style/SectionAuthorDateStyle">
+        <item name="android:textColor">@android:color/black</item>
         <item name="android:ellipsize">end</item>
         <item name="android:maxLines">1</item>
-        <item name="android:textColor">@color/color_section</item>
     </style>
 
     <!-- Style for trailText TextView -->
     <style name="TrailTextViewStyle">
+        <item name="android:textColor">@android:color/black</item>
         <item name="android:layout_marginBottom">8dp</item>
         <item name="android:layout_marginLeft">16dp</item>
         <item name="android:layout_marginRight">16dp</item>
         <item name="android:ellipsize">end</item>
         <item name="android:fontFamily">sans-serif-light</item>
         <item name="android:maxLines">6</item>
-        <item name="android:textColor">@color/color_trail_text</item>
     </style>
 
 
     <!-- Style for Author TextView -->
     <style name="AuthorTextViewStyle" parent="@style/SectionAuthorDateStyle">
-        <item name="android:textColor">@color/colorPrimary</item>
+        <item name="android:textColor">@android:color/black</item>
         <item name="android:textStyle">italic</item>
     </style>
 
@@ -76,5 +94,33 @@
         <item name="android:ellipsize">end</item>
         <item name="android:fontFamily">sans-serif-light</item>
         <item name="android:textColor">@color/color_trail_text</item>
+    </style>
+    
+    <!-- For dialog-->
+    <style name="TranslucentDialog" parent="android:style/Theme.DeviceDefault.Dialog.Alert">
+        <item name="android:colorBackground">#A9A9A9</item>
+    </style>
+
+    <!-- Style for distitle TextView-->
+    <style name="disTitleTextViewStyle">
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:fontFamily">sans-serif-condensed</item>
+    </style>
+
+    <!-- Style for disdisc TextView-->
+    <style name="disdiscTextViewStyle">
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:fontFamily">sans-serif-condensed</item>
+    </style>
+
+    <!-- Style for progress bar-->
+    <style name="progressTheme"
+        parent="ThemeOverlay.AppCompat.Light">
+        <item name="android:indeterminate">true</item>
+        <item name="android:indeterminateTintMode">src_atop</item>
+        <item name="android:indeterminateTint">@color/colorPrimary</item>
     </style>
 </resources>

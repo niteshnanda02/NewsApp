@@ -14,7 +14,7 @@ import com.example.citispotter.sign.loginActivity;
 public class MainActivity extends AppCompatActivity {
     ImageView imageView;
     Animation myAnim;
-    private static final int SPLASHTIME=3000;
+    public static final int SPLASHTIME=3000;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -27,10 +27,11 @@ public class MainActivity extends AppCompatActivity {
 
                 Intent intent=new Intent(MainActivity.this, loginActivity.class);
                 startActivity(intent);
+
                 finish();
             }
         },SPLASHTIME);
-        myAnim= AnimationUtils.loadAnimation(this,R.anim.mysplash);
+        myAnim= AnimationUtils.loadAnimation(MainActivity.this,R.anim.fade_in);
         imageView.startAnimation(myAnim);
 
     }

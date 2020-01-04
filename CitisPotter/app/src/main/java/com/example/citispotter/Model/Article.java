@@ -17,6 +17,16 @@ public class Article {
     private String urlToImage;
     @SerializedName("PublishedAt")
     private String PublishedAt;
+    @SerializedName("content")
+    private String content;
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
 
     public SourceModel getSource() {
         return source;
