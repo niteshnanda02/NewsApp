@@ -15,15 +15,16 @@
         android:roundIcon="@mipmap/ic_launcher_foreground"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Newsfeed.NewsDisplayActivity"
+        <activity android:name=".AddNewsActivity"></activity>
+        <activity
+            android:name=".Newsfeed.NewsDisplayActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"
-            android:theme="@style/DisplayTheme">
-        </activity>
+            android:theme="@style/DisplayTheme"></activity>
         <activity
             android:name=".AboutusActivity"
             android:configChanges="orientation|screenSize|keyboardHidden" />
         <activity
-            android:name=".addActivity"
+            android:name=".AddedActivity"
             android:configChanges="orientation|screenSize|keyboardHidden" />
         <activity
             android:name=".checkmenuActivity"
@@ -56,19 +57,16 @@
         <activity
             android:name=".HomeActivity"
             android:configChanges="orientation|screenSize|keyboardHidden">
-
-        </activity>
-        <activity
-            android:name=".MainActivity"
-            android:configChanges="orientation|screenSize|keyboardHidden"
-            android:theme="@style/SplashTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
+        <activity
+            android:name=".MainActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:theme="@style/SplashTheme"></activity>
         <activity
             android:name=".WebActivity"
             android:configChanges="orientation|screenSize|keyboardHidden"

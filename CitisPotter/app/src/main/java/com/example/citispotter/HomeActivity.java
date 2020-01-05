@@ -2,11 +2,9 @@ package com.example.citispotter;
 
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
-import android.view.WindowManager;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
@@ -47,6 +45,13 @@ public class HomeActivity extends AppCompatActivity {
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new AllFragment(null)).commit();
         tablanav();
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.app_bar_menu,menu);
+        return true;
     }
 
     private void tablanav() {
@@ -149,7 +154,7 @@ public class HomeActivity extends AppCompatActivity {
 
                         break;
                     case R.id.submission_menu:
-                        intent=new Intent(HomeActivity.this,addActivity.class);
+                        intent=new Intent(HomeActivity.this, AddedActivity.class);
                         startActivity(intent);
                         break;
                     case R.id.preference_menu:
@@ -179,10 +184,18 @@ public class HomeActivity extends AppCompatActivity {
 //for opening the drawer
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-
+        //for drawer
         if(t.onOptionsItemSelected(item))
             return true;
 
+        //for app bar menu
+        switch (item.getItemId()){
+            case R.id.add_menu:
+                Toast.makeText(this, "Clicked add", Toast.LENGTH_SHORT).show();
+                startActivity(new Intent(HomeActivity.this, AddNewsActivity.class));
+                finish();
+                return true;
+        }
         return super.onOptionsItemSelected(item);
     }
 

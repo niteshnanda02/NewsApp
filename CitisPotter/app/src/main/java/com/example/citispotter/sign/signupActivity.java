@@ -10,6 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.citispotter.HomeActivity;
+import com.example.citispotter.PreferenceActivity;
 import com.example.citispotter.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -44,7 +45,7 @@ public class signupActivity extends AppCompatActivity {
                         if(task.isSuccessful()){
                             FirebaseUser user=mauth.getCurrentUser();
                             updateUI(user);
-                            Intent intent=new Intent(signupActivity.this, HomeActivity.class);
+                            Intent intent=new Intent(signupActivity.this, PreferenceActivity.class);
                             startActivity(intent);
                             Toast.makeText(signupActivity.this, "Sign in successfully", Toast.LENGTH_SHORT).show();
                         }else{

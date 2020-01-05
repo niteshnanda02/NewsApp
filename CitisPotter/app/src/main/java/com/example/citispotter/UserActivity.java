@@ -36,7 +36,7 @@ public class UserActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setData();
+//        setData();
         setContentView(R.layout.activity_user);
 
         nametxt=(TextView)findViewById(R.id.username);
