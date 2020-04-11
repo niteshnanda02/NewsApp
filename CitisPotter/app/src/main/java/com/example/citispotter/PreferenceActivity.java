@@ -3,11 +3,14 @@ package com.example.citispotter;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.citispotter.Fragments.AllFragment;
@@ -28,10 +31,16 @@ public class PreferenceActivity extends AppCompatActivity implements View.OnClic
     //Using SQLiteDAtabase
     PreferenceDatabase pd;
     androidx.fragment.app.Fragment selectedFragment=null;
+    SharedPreferences mypref;
+    private static final String PREFS_NAME="Mypreffile";
+    SharedPreferences.Editor editor;
+    TextView listselected;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_preference);
+        listselected=(TextView)findViewById(R.id.list_selected);
         buis=(Button)findViewById(R.id.buisness);
         heal=(Button)findViewById(R.id.health);
         enter=(Button)findViewById(R.id.entertainment);
@@ -46,9 +55,23 @@ public class PreferenceActivity extends AppCompatActivity implements View.OnClic
         spo.setOnClickListener(this);
         tech.setOnClickListener(this);
         con.setOnClickListener(this);
-        pd=new PreferenceDatabase(this);
-    }
 
+        pd=new PreferenceDatabase(this);
+        saveBooleanInSP(this,true);
+        mypref=getSharedPreferences(PREFS_NAME,0);
+        editor=mypref.edit();
+        SharedPreferences preferences=getSharedPreferences(PREFS_NAME,0);
+        if (preferences.contains("list")){
+            String list=preferences.getString("list","notfound");
+            listselected.setText(list);
+        }
+    }
+    public static void saveBooleanInSP(Context _context, boolean value){
+        SharedPreferences preferences = _context.getSharedPreferences("PROJECTNAME", android.content.Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putBoolean("ISLOGGEDIN", value);
+        editor.commit();
+    }
 
     @Override
     public void onClick(View view) {
@@ -129,9 +152,11 @@ public class PreferenceActivity extends AppCompatActivity implements View.OnClic
                     System.out.println(list);
                     String str = getString(list);
                     boolean check=pd.Insert(str);
-                    if (check)
+                    if (check) {
+                        editor.putString("list",list.toString());
+                        editor.commit();
                         Toast.makeText(this, "Added succesfuly", Toast.LENGTH_SHORT).show();
-                    else
+                    }else
                         Toast.makeText(this, "ERROR!!", Toast.LENGTH_SHORT).show();
                     reference.setValue(str);
                 }else {

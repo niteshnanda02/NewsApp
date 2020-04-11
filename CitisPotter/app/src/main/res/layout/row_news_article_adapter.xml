@@ -45,10 +45,27 @@
                     android:contentDescription="Image"
                     android:scaleType="centerCrop" />
             </RelativeLayout>
-            <TextView
-                android:id="@+id/article_author"
-                style="@style/AuthorTextViewStyle"
-                tools:text="author" />
+            <RelativeLayout
+
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    style="@style/TrailTextViewStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/article_author"
+                    android:textColor="@android:color/black"
+                    tools:text="author" />
+                <TextView
+                    style="@style/TrailTextViewStyle"
+                    android:id="@+id/article_stance"
+                    android:layout_marginRight="30dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    ></TextView>
+            </RelativeLayout>
+
 
 
 

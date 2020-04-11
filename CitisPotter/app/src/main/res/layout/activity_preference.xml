@@ -98,6 +98,19 @@
                 android:layout_height="wrap_content">
             </Button>
         </LinearLayout>
+        <TextView
+            android:paddingLeft="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:text="*You have selected:- "></TextView>
+        <TextView
+            android:paddingLeft="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="15dp"
+            android:id="@+id/list_selected"
+            ></TextView>
     </LinearLayout>
 
 

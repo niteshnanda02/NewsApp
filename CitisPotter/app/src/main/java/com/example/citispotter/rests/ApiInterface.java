@@ -10,7 +10,7 @@ public interface ApiInterface {
     @GET("top-headlines")
     Call<ResponseModel> getLatestNews(@Query("sources") String source, @Query("apiKey") String apiKey);
     @GET("top-headlines")
-    Call<ResponseModel> getNews(@Query("country") String country,@Query("category") String category ,@Query("apiKey") String apiKey);
+    Call<ResponseModel> getNews(@Query("country") String country,@Query("category") String category,@Query("apiKey") String apiKey);
     @GET("everything")
     Call<ResponseModel> geteveryNews(@Query("q") String q,@Query("apiKey") String apiKey);
 }

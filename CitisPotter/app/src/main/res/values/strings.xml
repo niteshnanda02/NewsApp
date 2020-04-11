@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">CITISPOTTER</string>
-    <string name="facebook_app_id">468543197354104</string>
-    <string name="fb_login_protocol_scheme">fb468543197354104</string>
+    <string name="facebook_app_id">2623481077701424</string>
+    <string name="fb_login_protocol_scheme">fb2623481077701424</string>
 
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -24,4 +24,5 @@
 We offer 360 degree content analysis and helps businesses to optimize content by identifying and filtering harmful content. Our automated quality score and verification algorithm detects series of misinformation signals in the content and hence it could be optimized for better world.\n\n
 Our team has more than 15+ people working over our machine learning proprietary tech day and night to give our best to the businesses we serve. Our team consists of passionate entrepreneurs, coders, testers, researchers and panel of esteemed advisors.
     </string>
+    <string name="server_client_id">63095180784-lqam08q7b7tv89m7b2dv9vdc00fdhm68.apps.googleusercontent.com</string>
 </resources>

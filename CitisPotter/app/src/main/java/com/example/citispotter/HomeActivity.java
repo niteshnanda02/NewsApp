@@ -2,6 +2,7 @@ package com.example.citispotter;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -11,6 +12,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -18,11 +20,14 @@ import com.example.citispotter.Fragments.AllFragment;
 import com.example.citispotter.Fragments.FragmentAdd;
 import com.example.citispotter.Fragments.FragmentHistory;
 import com.example.citispotter.Fragments.Fragmentvideo;
+import com.example.citispotter.Model.HistoryClass;
+import com.example.citispotter.sqlLiteDatabase.PreferenceDatabase;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.tabs.TabLayout;
 
 public class HomeActivity extends AppCompatActivity {
+    PreferenceDatabase pdatabase;
     BottomNavigationView bottomNavigationView;
     TabLayout tabLayout;
     private DrawerLayout dl;
@@ -33,6 +38,12 @@ public class HomeActivity extends AppCompatActivity {
     boolean val=false;
     AlertDialog dialog;
     Intent intent;
+    String pref;
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +53,9 @@ public class HomeActivity extends AppCompatActivity {
 //        bottomNavigationView=(BottomNavigationView)findViewById(R.id.bottom_navigation);
         drawer();
 //        bottomNavigate();
+        pdatabase=new PreferenceDatabase(this);
+        pref=pdatabase.getData();
+        System.out.println("pref " +pref);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,new AllFragment(null)).commit();
         tablanav();
 
@@ -157,8 +171,14 @@ public class HomeActivity extends AppCompatActivity {
                         intent=new Intent(HomeActivity.this, AddedActivity.class);
                         startActivity(intent);
                         break;
+                    case R.id.history_menu:
+                        intent=new Intent(HomeActivity.this, HistoryActivity.class);
+                        startActivity(intent);
+                        break;
+
                     case R.id.preference_menu:
-                        Toast.makeText(HomeActivity.this, "Click Preference", Toast.LENGTH_SHORT).show();
+                        intent=new Intent(HomeActivity.this,PreferenceActivity.class);
+                        startActivity(intent);
                         break;
                     case R.id.profile:
                         intent=new Intent(HomeActivity.this,UserActivity.class);
@@ -214,8 +234,7 @@ public class HomeActivity extends AppCompatActivity {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 Toast.makeText(HomeActivity.this, "Exit successfully!!", Toast.LENGTH_SHORT).show();
-                                finish();
-
+                                ActivityCompat.finishAffinity(HomeActivity.this);
                             }
                         })
                         .setNegativeButton(getString(R.string.no), null)

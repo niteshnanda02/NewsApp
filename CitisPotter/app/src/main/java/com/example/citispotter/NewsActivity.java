@@ -43,10 +43,10 @@ public class NewsActivity extends AppCompatActivity implements OnRecyclerViewIte
                 if(response.body().getStatus().equals("ok")){
                     List<Article> articleList=response.body().getArticles();
                     if(articleList.size()>0){
-                        final MainArticleAdapter mainArticleAdapter=new
-                                MainArticleAdapter(articleList);
-                        mainArticleAdapter.setOnRecyclerViewItemClickListener(NewsActivity.this);
-                        recyclerView.setAdapter(mainArticleAdapter);
+//                        final MainArticleAdapter mainArticleAdapter=new
+//                                MainArticleAdapter(articleList);
+//                        mainArticleAdapter.setOnRecyclerViewItemClickListener(NewsActivity.this);
+//                        recyclerView.setAdapter(mainArticleAdapter);
                     }
                 }
             }
